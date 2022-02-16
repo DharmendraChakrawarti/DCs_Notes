@@ -1,0 +1,68 @@
+#include<iostream>
+#include <bits/stdc++.h>
+using namespace std;
+int vertArr[20][20]; //the adjacency matrix initially 0
+vector<int> adj[9];// 9 is no of vertices
+class graph{
+public:
+int V,E;
+graph(){
+     
+     V=6; //no of vertices
+     E=9; //no of edges
+}
+
+//adjecency metrix 
+void adjacency_metrix(){
+for (int  i = 0; i < E; i++)
+{
+    int u,v;
+    cout<<"Enter the value of Edge-u&v";
+cin>>u>>v;
+     vertArr[u][v] = 1;
+   vertArr[v][u] = 1;
+}
+
+}
+void displayMatrix( ){
+   int i, j;
+   for(i = 0; i < V; i++) {
+      for(j = 0; j < V; j++) {
+         cout << vertArr[i][j] << " ";
+      }
+      cout << endl;
+   }
+}
+
+//adjacency_list
+void adjectency_list()
+{
+    for(int i = 0; i < V; i++) {
+         int u,v;
+    cout<<"Enter the value of Edge-u&v";
+cin>>u>>v;
+    adj[u].push_back(v);
+    adj[v].push_back(u);
+    }
+}
+
+void displaylist()
+{
+    for (int i = 0; i < V; ++i) {
+        cout << "\n Adjacency list of vertex " << i
+             << "\n head ";
+        for (auto x : adj[i])
+            cout << "-> " << x;
+        printf("\n");
+    }
+}
+};
+int main(){
+    graph obb;
+    //obb.adjacency_metrix();
+   // obb.displayMatrix();
+
+   obb.adjectency_list();
+   obb.displaylist();
+    return 0;
+}
