@@ -28,12 +28,12 @@ public class o7_Bipartite_Graph_DFS_Graph_Coloring {
 
 
     //for DFS
-    public static boolean dfs(int node,int color[],ArrayList<ArrayList<Integer>>sdj){
-        color[node] =1;
+    public static boolean dfs(int node,int color[],int co;ArrayList<ArrayList<Integer>>sdj){
+        color[node] =co;
     for(Integer i:sdj.get(node)){
         if(color[i]==-1){
             color[i]=1-color[node];
-         if(!dfs(i, color, sdj))return false;
+         if(!dfs(i, color,color[i], sdj))return false;
         }
         else if(color[i]==color[node])return false;
     }
@@ -46,7 +46,7 @@ public class o7_Bipartite_Graph_DFS_Graph_Coloring {
     Arrays.fill(color,-1);
     for(int i=0;i<V;i++){
         if(color[i]==-1){
-            if(!dfs(i,color,adj))return false;
+            if(!dfs(i,color,1,adj))return false;
         }
     }
 return true;
